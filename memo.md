@@ -1,0 +1,28 @@
+# アイデアメモ
+- []headのつけかえ
+    - []cnn head（構文的な特徴を捉えられないか？）
+    - [◯]concat cls token -> これもアンサンブルで効きそう
+    - [×]lstm head
+- [◯]max_len小さい方が精度出る？ ->アンサンブルで長さ変えたら効きそう
+- adversal training
+    - []awp
+    - [◯]fgm(eps=0.3)
+- loss
+    - [△]回帰：mseやsmoothl1lossに変更 ->smoothl1lossが良さそう
+    - []分類で解く
+- [×]文章の特徴量をbertにオンカットして学習
+    - 文章の読みやすさを数値化したものはいくつか用意されているらしい
+    - 音節数はライブラリある（https://pypi.org/project/syllables/#files）
+    - bertの学習ではダメだったけど、スタッキングで入れたらうまくいくかも
+- [×]mlm
+- []back translation使ったpsuedo label
+- 学習パラメータ等の変更
+    - [◯]layerごとにlrの変更（今は0.95で効いてる）
+    - []group化してlr変更(https://github.com/Danielhuxc/CLRP-solution/blob/main/components/optimizer.py)
+    - [×]layerの初期化
+    - []overfit怖いからweight_decayを大きくする
+- []アンサンブル、スタッキング
+    - []nelder-mead
+    - []lightgbm
+    - []gaussian process regression(https://www.kaggle.com/competitions/commonlitreadabilityprize/discussion/258554)
+- []6つのtargetは欲しい情報が異なりそう？例えば、cohesionとsyntaxは文の広い特徴を掴みたい一方で、それ以外は単語やスペルといった細かい部分を気にしている気がする
