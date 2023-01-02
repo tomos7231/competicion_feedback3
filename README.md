@@ -1,4 +1,4 @@
-# competicion_feedback3
+# competition_feedback3
 - 117 place(2654 perticiants)
 
 # solution
